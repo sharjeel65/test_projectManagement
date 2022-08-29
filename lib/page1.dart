@@ -1,0 +1,219 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_wrapper.dart';
+import 'package:sizer/sizer.dart';
+
+class Page1 extends StatefulWidget {
+  const Page1({Key? key}) : super(key: key);
+
+  @override
+  State<Page1> createState() => _Page1State();
+}
+
+class _Page1State extends State<Page1> {
+  @override
+  Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width / 100;
+    var height = MediaQuery.of(context).size.height / 100;
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.only(
+              left: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+                  ? 0
+                  : width * 30,
+              top: height * 2),
+          child: Align(
+            alignment: Alignment.center,
+            child: Container(
+              constraints: BoxConstraints(
+                  maxWidth: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+                      ? width * 70
+                      : width * 30),
+              child: Text(
+                'Drei einfache Schritte zu deinem neuen Job',
+                style: TextStyle(
+                  color: Color(0xff4A5568),
+                  fontSize: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+                      ? 24.sp
+                      : 5.sp,
+                ),
+              ),
+            ),
+          ),
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Stack(
+              children: [
+                Container(
+                  width: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+                      ? width * 70
+                      : width * 20,
+                  height: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+                      ? height * 40
+                      : height * 40,
+                  margin: EdgeInsets.only(
+                    left: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+                        ? width * 20
+                        : width * 60,
+                  ),
+                  child: Center(
+                    child: Image(
+                      image: AssetImage('profile.png'),
+                      height:
+                          ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+                              ? height * 50
+                              : height * 40,
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                      left: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ? 0 : width * 27,
+                      top: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ?height * 30  : 7.h,
+                      right: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ?width * 20  :0 ),
+                  width: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ?width * 30  :width * 10 ,
+                  height: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ?height * 20  :height * 20 ,
+                  child: Center(
+                    child: Text(
+                      '1.',
+                      style: TextStyle(
+                          fontSize: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ? 110.sp : 15.sp,
+                          color: Color(0xff718096)),
+                    ),
+                  ),
+                  decoration: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+                      ? null
+                      : BoxDecoration(
+                    color: Colors.grey.shade200,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                      left: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ?width * 30 :width * 35  ,
+                      top: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ?height * 45  : 15.h),
+                  child: Center(
+                    child: Text(
+                      'Erstellen dein Lebenslauf',
+                      style: TextStyle(
+                          fontSize: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ?20.sp :5.sp  ,
+                          color: Color(0xff718096)),
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+        Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [Color(0xffE6FFFA), Color(0xffEBF4FF)])),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Stack(
+                children: [
+                  Container(
+                    width: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ?width * 70  :width * 20 ,
+                    height: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ?  height * 40:height * 40 ,
+                    margin: EdgeInsets.only(
+                        left: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ? width * 20 :width * 42 ,
+                        top: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ? height * 15 :0 ),
+                    child: Center(
+                      child: Image(
+                        image: AssetImage('undraw.png'),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(
+                        left: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ?width * 0 :width * 65  ,
+                        top: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ?  0:10.h ),
+                    child: Center(
+                      child: Text(
+                        '2.',
+                        style: TextStyle(
+                            fontSize: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ? 110.sp:15.sp  ,
+                            color: Color(0xff718096)),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(
+                        left: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ?width * 30  :width * 70 , top: 16.2.h),
+                    child: Center(
+                      child: Text(
+                        'Erstellen dein Lebenslauf',
+                        style: TextStyle(
+                            fontSize: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ? 20.sp: 5.sp ,
+                            color: Color(0xff718096)),
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Stack(
+              children: [
+                Container(
+                  width: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ? width * 70 : width * 20,
+                  height: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ? height * 40 : height * 40,
+                  margin: EdgeInsets.only(
+                      left: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ? width * 20 :width * 42 ,
+                      top: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ?height * 15  :0 ),
+                  child: Center(
+                    child: Image(
+                      image: AssetImage('undraw2.png'),
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                      left: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ?width * 0  : width * 65,
+                      top: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ?0  : 10.h),
+                  child: Center(
+                    child: Text(
+                      '3.',
+                      style: TextStyle(
+                          fontSize: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ? 110.sp :15.sp ,
+                          color: Color(0xff718096)),
+                    ),
+                  ),
+                ),
+                Container(
+                  constraints: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+                      ?BoxConstraints(
+    maxHeight: height * 10,
+    maxWidth: width * 50,
+    )
+                      : null,
+                  margin: EdgeInsets.only(
+                      left: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ? width * 30 : width * 70,
+                      top: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ? height * 10 :16.2.h ),
+                  child: Center(
+                    child: Text(
+                      'Mit nur einem Klick bewerben',
+                      style: TextStyle(
+                          fontSize: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP) ? 20.sp :5.sp ,
+                          color: Color(0xff718096)),
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ],
+    );
+  }
+}
